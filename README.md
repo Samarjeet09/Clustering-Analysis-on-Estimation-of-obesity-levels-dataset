@@ -1,12 +1,65 @@
 # Clustering-Analysis-on-Estimation-of-obesity-levels-dataset
 
-## Comparitive performance study of different clustering algorithms using different pre-processing techniques with different numbers of clusters on different evaluation parameters
-- Select any small dataset from UCI library
-- Create Colab notebook and perform cluster alaysis
-- Upload on github and describe in brief with results, tables, graphs and conclusion and upload on github.
+## KMeans
+### Type: Partitioning Clustering
+### Description:
+KMeans divides a dataset into a pre-defined number of clusters, represented by k.
+Initially, k centroids are randomly chosen from the data points.
+Iteratively, each data point is assigned to the nearest centroid, forming k clusters.
+The centroids are then recalculated by taking the mean of all points assigned to each cluster.
+This process is repeated until the centroids no longer change significantly or a specified number of iterations is reached.
+### Pros:
+Simple and computationally efficient.
+Works well with large datasets.
+### Cons:
+Requires the number of clusters (k) to be specified beforehand.
+Sensitive to initial centroid placement.
 
-### Sample Result Table
-![131206252-10a4e5ec-ec8f-4017-8617-ae46d47dcdcf](https://github.com/psrana/Clustering-Assignment/assets/7460892/8cd5f3d3-3891-4a9c-8c6e-9abfb8f0a946)
+
+## MeanShift
+### Type: Density-Based Clustering
+### Description:
+MeanShift doesn't require specifying the number of clusters beforehand.
+It starts with a set of data points and iteratively shifts each point towards the mean of the points within its neighborhood until convergence.
+Clusters are formed around high-density regions in the data space.
+The algorithm automatically determines the number of clusters based on data density.
+### Pros:
+Doesn't require pre-defining the number of clusters.
+Can handle arbitrary shapes of clusters.
+### Cons:
+Computationally expensive, especially for large datasets.
+Sensitivity to parameters such as bandwidth.
+
+## HClust (Hierarchical Clustering)
+### Type: Hierarchical Clustering
+### Description:
+HClust builds a hierarchy of clusters.
+It starts with each data point as a singleton cluster and then merges similar clusters iteratively until all points belong to one cluster.
+The result is typically visualized using a dendrogram, which illustrates the order in which clusters are merged.
+Can be agglomerative (bottom-up) or divisive (top-down).
+### Pros:
+Doesn't require specifying the number of clusters beforehand.
+Provides insights into hierarchical relationships between clusters.
+### Cons:
+Computationally intensive, especially for large datasets.
+Memory-intensive for storing the hierarchy.
+
+## DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+### Type: Density-Based Clustering
+### Description:
+DBSCAN groups together points that are closely packed together, based on two parameters: epsilon (ε) - maximum radius of the neighborhood, and minPts - minimum number of points in the neighborhood for a point to be considered a core point.
+Points within a distance ε of a core point are considered part of the same cluster.
+Points that are not core points or reachable from core points are classified as noise/outliers.
+### Pros:
+Can identify arbitrarily shaped clusters.
+Robust to outliers and noise.
+### Cons:
+Sensitivity to parameter tuning, especially ε and minPts.
+Computationally expensive for large datasets.
+Each clustering algorithm has its own characteristics, advantages, and limitations, making them suitable for different types of datasets and clustering objectives.
+
+
+
 
 ## Results for Estimation of obesity levels based on eating habits and physical condition  Dataset
 ### KMEANS
